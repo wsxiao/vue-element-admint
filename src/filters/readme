@@ -1,0 +1,84 @@
+全局filter
+
+假数据
+
+添加代理的假数据
+this.paramCreateMerchant =  {
+          operatorId:getLocal('userInfo').userId,
+          cooperatorName: "newAgent120201一级",
+          loginName:"newAgent120201@123.com",
+          userName: "newAgent120201",
+          loginPwd:"0856f9e40eb8a25c0b5f536b989d0d48",
+          loginPwdTo:"0856f9e40eb8a25c0b5f536b989d0d48",
+          phoneNo: "13522120201",
+          roleId:139,
+          invoice:true,
+          upperAgentId:'',
+          distributeCompanyId:"D651007913401262080",
+          fileBizVOS:[
+            {
+              bizType:10,fileName:'DKing专用电子合同',fileUrl:'hvyogo-beta/business_license/2019/10/20191029132301-DKing专用电子合同.pdf'
+            },
+            {bizType:20, fileName:"9598e317a2b220e1e77ee0bbfd78a096", fileUrl:"hvyogo-beta/business_license/2019/11/20191119180347-9598e317a2b220e1e77ee0bbfd78a096.jpg"}
+          ],
+          rateIntervaVOS: [
+            {
+              upperLimitAmount:999999999900,
+              cooperatorRules:[
+                {
+                  computeMode: 2,
+                  costRate: "0.075",
+                  distributeRuleId: 887,
+                  monthLimitAmount: 50000000,
+                  restrictFlag: true
+                },
+                {
+                  computeMode: 2,
+                  costRate: "0.077",
+                  distributeRuleId: 888,
+                  monthLimitAmount: 80000000,
+                  restrictFlag: true
+                },
+                {
+                  computeMode: 2,
+                  costRate: "0.079",
+                  distributeRuleId: 889,
+                  monthLimitAmount: 100000000,
+                  restrictFlag: true
+                }
+              ]
+            }
+          ],
+          rateIntervaVOSFull:[
+            {
+              upperLimitAmount:999999999900,
+              cooperatorRules:[
+                {
+                  computeMode: 2,
+                  costRate: "0.079",
+                  distributeRuleId: 887,
+                  monthLimitAmount: 50000000,
+                  restrictFlag:true
+                },
+                {
+                  computeMode: 2,
+                  costRate: "0.081",
+                  distributeRuleId: 888,
+                  monthLimitAmount: 80000000,
+                  restrictFlag: true
+                },
+                {
+                  computeMode: 2,
+                  costRate: "0.083",
+                  distributeRuleId: 889,
+                  monthLimitAmount: 100000000,
+                  restrictFlag: true
+                }
+              ]
+
+            },
+          ],
+          isReturnCommission:true,
+        };
+
+

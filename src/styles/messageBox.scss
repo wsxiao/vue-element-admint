@@ -1,0 +1,150 @@
+/**
+ * @Author: DKing
+ * @Desc: 弹窗样式表
+ * @Date: 2019-12-16
+ */
+
+
+//确认消息弹框
+.el-message-box__wrapper{
+  .el-message-box{
+    height: 246px;
+    position: relative;
+    padding-bottom: 64px;
+    width: 520px;
+    .el-message-box__header{
+      height: 64px;
+      line-height: 64px;
+      background-color: #f4f4f4;
+      color: $fontColorTitle;
+      font-size: 16px;
+      position: relative;
+      padding: 23px 24px;
+      font-weight: 400;
+    }
+    .el-message-box__content{
+      position: relative;
+      color: #595959;
+      font-size: 14px;
+      height: 118px;
+      display: flex;
+      align-items: center;
+      padding: 0 32px;
+      font-weight: 400;
+      .el-message-box__message{
+        display: block;
+      }
+      .el-message-box__status{
+        display: none;
+      }
+    }
+    .el-message-box__btns{
+      border-top: 1px solid #e5e5e5;
+      width: calc(100% - 48px);
+      padding: 16px 0;
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+      height: 64px;
+    }
+  }
+}
+
+// 带form的提交信息
+.el-dialog__wrapper{
+  display: flex;
+  align-items: center;
+  .el-dialog{
+    width:520px;
+    text-align: left;
+    max-height: 600px;
+    overflow: auto;
+  }
+  .el-dialog__header{
+    height: 64px;
+    background-color: #f4f4f4;
+    color: $fontColorTitle;
+    font-size: 16px;
+    position: relative;
+    padding: 23px 24px;
+    font-weight: 400;
+  }
+  .el-dialog__body{
+    margin-bottom:32px;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 472px;
+    overflow: auto;
+    padding-bottom: 64px;
+    box-sizing: border-box;
+    .el-input, .el-select{
+      width:250px;
+    }
+  }
+  .el-dialog__footer{
+    border-top: 1px solid #e5e5e5;
+    width: calc(100% - 48px);
+    padding: 16px 0;
+    height: 64px;
+    margin-left:24px;
+    position: absolute;
+    bottom: 0;
+    right: 24px;
+    background-color: #fff;
+    z-index: 1000;
+    .dialog-footer{
+      .el-button--default{
+        @include btnBaseNormalStyle;
+        background-color: $bgColorContent;
+        color:$fontColorContent;
+        border:1px solid $fontColorDisabled;
+        padding:0;
+        &:hover{
+          background-color: #f5faff;
+        }
+        &:active{
+          background-color: #E6EFFA;
+        }
+      }
+      .el-button--primary{
+        @include btnBaseNormalStyle;
+        background-color: $colorMain;
+        color:#fff;
+        padding:0;
+        &:hover{
+          background-color: #4da0ff;
+        }
+        &:active{
+          background-color: #0B71E6;
+        }
+      }
+    }
+  }
+}
+
+// 图片 + 文字 成功/失败提示文案
+.el-message-box__message{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  .dk-message-box{
+    text-align: center;
+  }
+  .dk-message-box-text-success{
+    font-size: 24px;
+    color:$colorSuc;
+  }
+
+  .dk-message-box-text-error{
+    font-size: 24px;
+    color:$colorErr;
+  }
+
+  .dk-message-img{
+    width:128px;
+    vertical-align: middle;
+    margin-right:16px;
+  }
+}

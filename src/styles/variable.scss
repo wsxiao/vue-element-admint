@@ -1,0 +1,163 @@
+/**
+ * @Author: DKing
+ * @Desc: 全局的样式变量
+ * @Date: 201912-16
+ */
+$fontColorIgnore: #8c8c8c;
+$fontColorSmall: #595959;
+$fontMainColor:#272727;
+
+$button-confirm-color: #1985FF;
+
+
+// Font Color  文字颜色
+$fontColorTitle: #272727;       // 一级、标题、重要文字
+$fontColorContent: #595959;     // 二级、内容文字/表单已填内容文字
+$fontColorTip: #8c8c8c;         // 三级、提示文字/次要内容文字
+$fontColorPlaceholder: #bfbfbf; // 提示文字/次要内容文字
+$fontColorDisabled: #d9d9d9;    // 不可点击/禁用/边框颜色
+
+// Color 颜色值
+$colorMain: #1985ff;            // 主色调 重要的提醒/主要文字/主要按钮
+$colorPrice: #ff943e;           // 用于金额/部分强调的文字
+$colorSuc: #13bf85;             // 成功/启动等状态
+$colorErr: #F2503D;             // 操作提醒/错误/禁用等状态
+
+// Block Color  背景颜色
+$bgColorMain: #f0f2f5;          // 主背景色/内容区域间隔的底色
+$bgColorContent: #FFFFFF;        // 选择 填写栏底色/内容区域底色
+$bgColorTitle: #fafafa;         // 表格标题行底色/弹窗标题行底色
+
+// Border Color 边框颜色
+$borderColor: #e5e5e5;          // Header/Footer Toolbar
+$borderColorLine: #EEE;       // 内容区分割线
+
+
+// Font Size
+$fontSize24: 24px;    //$colorMain Page header 文字
+$fontSize20: 20px;    // 少量重要文字/部分金额数字
+$fontSize16: 16px;    // 少量重要文字/小标题/弹窗标题
+$fontSize14: 14px;    // 内容文字/表单文字/操作按钮
+$fontSize12: 12px;    // 操作提示信息/说明文字/辅助文字
+
+
+// width
+$tableTdMaxWidth: 243px;  // table的td最大宽度
+
+
+// Normal Btn Base Style -- Border
+@mixin btnBaseNormalStyle{
+  display: inline-block;
+  min-width:72px;
+  max-width:200px;
+  height: 32px;
+  outline:none;
+  font-weight: 400;
+  font-size: 14px;
+  border-radius: 4px;
+  border:1px solid #BFDDFF;
+  text-align: center;
+  line-height: 32px;
+  padding:0;
+}
+
+@mixin btnBaseNormalStyleNoBorder{
+  //display: inline-block;
+  min-width:72px;
+  max-width:200px;
+  height: 32px;
+  line-height: 32px;
+  outline:none;
+  font-weight: 400;
+  font-size: 14px;
+  text-decoration: underline;
+  border:none;
+  background-color: transparent;
+  text-align: left;
+}
+
+//状态圆点
+@mixin dot {
+  display: inline-block;
+  width:8px;
+  height: 8px;
+  border-radius: 50%;
+  vertical-align: middle;
+  margin-right:8px;
+}
+
+
+@mixin left{
+  float: left;
+}
+@mixin right{
+  float: right;
+}
+
+
+@mixin align-left{
+  text-align: left;
+}
+@mixin align-right{
+  text-align: right;
+}
+@mixin align-center{
+  text-align: center;
+}
+
+
+@mixin vertical-top{
+  vertical-align: top;
+}
+@mixin vertical-bottom{
+  vertical-align: bottom;
+}
+@mixin vertical-middle{
+  vertical-align: middle;
+}
+
+
+@mixin block{
+  display: block;
+}
+@mixin inline-block{
+  display: inline-block;
+}
+@mixin inline{
+  display: inline;
+}
+@mixin flex{
+  display: flex;
+}
+@mixin relative{
+  position: relative;
+}
+@mixin absolute{
+  position: absolute;
+}
+@mixin fixed{
+  position: fixed;
+}
+
+
+@mixin click{
+  color: red;
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
+@mixin font-title{
+  font{
+    size: 16px;
+    weight: bold;
+  }
+}
+
+@mixin large-text {
+  color: #C21F39;
+  font: {
+    size: 20px;
+  }
+  text-decoration: #C21F39;
+}

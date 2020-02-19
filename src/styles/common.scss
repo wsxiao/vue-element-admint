@@ -1,0 +1,463 @@
+/**
+ * @Author: DKing
+ * @Desc: 全局样式表
+ * @Date: 2019-02-16
+ */
+@import "variable";
+@import "button";
+@import "messageBox";
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: $fontColorContent;
+  text-decoration: none;
+}
+a, input, button {
+  cursor: pointer;
+}
+ul, li, p {
+  padding: 0;
+  margin: 0;
+  list-style: none
+}
+html,body,#app, .main-body{
+  height: 100%;
+
+}
+body {
+  font-size: 14px;
+  font-weight: 500;
+  height: 100%;
+  //font-family: "Microsoft YaHei" !important;
+  color: $fontColorContent;
+  background-color: #F0F2F5;
+  //padding-bottom:24px;
+}
+#app{
+  min-width: 1440px;
+  overflow-x: auto;
+}
+
+input::-webkit-input-placeholder {
+  color: $fontColorPlaceholder;
+}
+
+input, button, textarea {
+  //font-family: "Microsoft YaHei" !important;
+}
+.inline-block{
+  display: inline-block;
+}
+.right{
+  float: right;
+}
+
+.page-main{
+  padding:32px 0;
+  background-color: #fff;
+  //min-height: calc(100% + 32px);
+  min-height: calc(100% + 6px);
+  //margin-bottom: 24px;
+}
+.page-main-padding{
+  padding:32px;
+}
+.page-main{
+  .page-center{
+    width:100%;
+    display: flex;
+    justify-content: center;
+    .el-input--suffix {
+      width:480px;
+      .el-input__inner{
+        width:480px;
+      }
+
+    }
+
+  }
+}
+
+.text-tip{
+  color: $fontColorTip;
+  font-size: $fontSize12;
+  display: inline-block;
+  text-align: left;
+}
+
+// 查询条件下有按钮的footer
+.search-footer-btn{
+  border-bottom:1px solid $borderColorLine;
+  width:calc(100% - 64px);
+  margin-left:32px;
+  text-align: right;
+  padding-bottom:24px;
+  margin-bottom:24px;
+}
+
+// 查询条件下含按钮的footer
+.search-footer{
+  border-bottom:1px solid $borderColorLine;
+  width:calc(100% - 64px);
+  margin-left:32px;
+  text-align: right;
+  padding-bottom:8px;
+  margin-bottom:24px;
+}
+// 保存按钮的footer
+.save-footer{
+  width:calc(100% - 64px);
+  margin-left:32px;
+  text-align: right;
+  padding:16px 0;
+}
+
+.list-body{
+  padding:0 32px 0 32px;
+  overflow: hidden;
+  .el-pagination{
+    @include align-right;
+    margin-top: 16px;
+  }
+  .btnLargeFullColor {
+    margin-bottom: 16px;
+  }
+}
+//查询按钮和 查询条件在一行给按钮增加此class
+.marginLeft32{
+  margin-left: 32px;
+}
+.marginBottom10{
+  margin-bottom: 10px;
+}
+.marginBottom20{
+  margin-bottom: 20px;
+}
+
+
+
+//# 13BF85   红色 # F2503D   橙色 # FF943E    灰色 # D9D9D9
+//红色圆点
+.dot-red{
+  @include dot;
+  background-color: #F2503D;
+}
+//绿色圆点
+.dot-green{
+  @include dot;
+  background-color: #13BF85;
+}
+//橙色圆点
+.dot-orange{
+  @include dot;
+  background-color: #FF943E;
+}
+//灰色圆点
+.dot-gray{
+  @include dot;
+  background-color: #D9D9D9;
+}
+
+
+//Table Styles
+.el-table th.is-leaf{
+  background-color: #fafafa;
+  color:$fontMainColor;
+}
+.el-table .cell{
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  //min-width: 120px;
+}
+.el-table__header-wrapper{
+  .el-table__header{
+    width:100%;
+    overflow: auto;
+  }
+}
+.el-table__indent{
+  padding-left:10px !important;
+}
+.el-table--enable-row-transition .el-table__body td{
+  max-width: 200px;
+}
+body .el-table th.gutter {
+  display: table-cell !important;
+}
+
+body .el-table colgroup.gutter {
+  display: table-cell !important;
+}
+
+table {
+  width: 100% !important;
+}
+
+//一行展示的form
+.block-form-item{
+  display: block;
+}
+.padding32{
+  padding:0 32px;
+}
+
+//form 表单 小label
+.small-label{
+  min-width:72px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  text-align: left;
+  color:$fontColorTitle;
+  font-size: 14px;
+  font-weight: normal;
+  margin-right:5px;
+  margin-left:32px;
+}
+
+//form 表单 大label
+.large-label{
+  width:120px;
+  height: 32px;
+  line-height: 32px;
+  display: inline-block;
+  text-align: left;
+  color:$fontColorTitle;
+  font-size: 14px;
+  font-weight: normal;
+  margin-right:5px;
+  margin-left:32px;
+}
+
+input[type=number] {
+  -moz-appearance:textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+//change - 输入框的高度
+.el-input__inner{
+  height: 32px;
+  line-height: 32px;
+}
+
+
+//一行展示的form表单
+.block-form-item{
+  display: block;
+  margin-bottom:16px;
+  //行内的input
+  .el-input{
+    width:256px;
+  }
+
+  //行内的select - 联动下拉框
+  .el-select-relevant{
+    width:304px;
+    .el-input{
+      width:304px;
+      .el-input__inner{
+        width:304px;
+      }
+    }
+  }
+
+  //下拉框之间的间距
+  .margin-between{
+    margin-right:15px;
+  }
+
+  //行内下拉框 + 输入框的角标
+  .el-input__prefix, .el-input__suffix{
+    height: auto;
+    top:-3px;
+  }
+
+  //日期组件修改样式
+  .el-date-editor--daterange{
+    width:256px;
+    .el-input__icon{
+      height: auto;
+      line-height: 32px;
+    }
+    .el-range-separator{
+      width: 20px;
+      line-height: 28px;
+      margin-right: 3px;
+    }
+  }
+}
+
+//最大值最小值
+.info-block .info-item .min-to-max{
+  width: 256px;
+  display: inline-block;
+  height: 32px;
+  vertical-align: middle;
+  .el-input{
+    width:120px;
+  }
+  .between-text{
+    display: inline-block;
+    width:8px;
+    text-align: center;
+  }
+}
+
+
+
+//详情页面
+.blue-title {
+  color: $colorMain;
+}
+
+.margin-bg {
+  display: block;
+  width: 100%;
+  background-color: $bgColorMain;
+  height: 24px;
+}
+
+//宽度为100% 的条
+.slide-border-full {
+  width: 100%;
+  border-bottom: 1px solid $borderColor;
+  display: block;
+}
+//marginLeft有32px的 条
+.slide-border{
+  width:calc(100% - 64px);
+  border-bottom: 1px solid $borderColor;
+  display: block;
+  margin:24px 32px;
+
+}
+.info-block {
+  background-color: #fff;
+  .info-title {
+    width: 100%;
+    padding: 0 32px;
+    line-height: 56px;
+    border-bottom: 1px solid $borderColor;
+    .title {
+      font-size: $fontSize16;
+    }
+  }
+
+  .info-body {
+    padding: 0 24px;
+    .el-input{
+      width:256px;
+    }
+    .info-item {
+      font-size: 14px;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      div{
+        margin-bottom:8px;
+        height: 40px;
+      }
+      .info-value {
+        color: $fontColorContent;
+        vertical-align: top;
+        display: inline-block;
+        line-height: 32px;
+        width:calc(100% - 105px);
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        word-break: break-all;
+      }
+      .btnNoBorderBlue{
+        color: $colorMain;
+      }
+
+    }
+  }
+
+}
+
+.el-pagination{
+  text-align: right;
+}
+
+.dialog-search {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.file-name{
+  width:133px;
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  height: 32px;
+  vertical-align: middle;
+  line-height: 32px;
+  color:$fontColorContent
+}
+
+//新增成本规则的添加按钮样式
+.add-cost{
+  width: 100%;
+  text-align: center;
+  line-height: 32px;
+  border: 1px dashed #ececec;
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.margin-bottom-box{
+  margin:20px 0;
+}
+.el-form-item__content{
+  display: inline-block;
+}
+
+//上传图片样式
+div.upload-demo {
+  display: inline-block;
+  height: 32px;
+  box-sizing: border-box;
+  margin: 0;
+  line-height: 34px;
+  vertical-align: middle;
+  overflow: hidden;
+  padding-top: 1px;
+}
+
+div.el-upload {
+  height: 32px;
+  margin: 0;
+  line-height: 32px;
+  position: relative;
+  top: -1px;
+}
+
+.el-upload .btnNoBorderBlue {
+  height: 32px;
+  line-height: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  position: relative;
+  top: -2px;
+}
+
+.el-upload-list {
+  position: relative;
+  top: -15px;
+  display: none;
+}
