@@ -3,17 +3,19 @@
  * @Desc: 接口地址
  * @Date: 2019-12-16
  */
-
+import axios from 'axios';
+axios.defaults.baseURL = 'http://39.101.164.166:13149/'
+console.log('接口地址：',axios.defaults.baseURL)
 export const INTERFACEURL = {
   // 商品库存
-  codesChangeBatch:'codes/changeBatch',       // 修改批次
-  codesDownload:'codes/download',    // 采购模版下载
-  codesOnSale:'codes/onSale',       // 一键上架
-  codesSearch:'codes/codeSearch',    // 搜索卡商品
-  codesList:'codes/codeList',        // 卡列列表
-  codesStorage:'codes/storage',      // 保存上传的数据
-  codesCancel:'codes/cancel',        // 取消上传的数据
-  codesUpload:'codes/upload',        // 采购商品导入
+  cardChangeBatch:'cards/changeBatch',       // 修改批次
+  codesDownload:'cards/download',    // 采购模版下载
+  cardOnSale:'cards/onSale',       // 一键上架
+  cardSearch:'cards/cardSearch',    // 搜索卡商品
+  codesList:'cards/cardsList',        // 卡列列表
+  codesStorage:'cards/storage',      // 保存上传的数据
+  codesCancel:'cards/cancel',        // 取消上传的数据
+  codesUpload:axios.defaults.baseURL + 'cards/upload',        // 采购商品导入
 
   // 企业
   enterpriseCreate:'enterprise/create',        // 新建企业

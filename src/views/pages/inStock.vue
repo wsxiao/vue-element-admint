@@ -6,7 +6,18 @@
 
 <template>
   <div class="page-main page-main-padding">
-    <span class="btnLargeFullColor" @click="importStock">导入采购的商品</span>
+    <!--<span class="btnLargeFullColor" @click="importStock">导入采购的商品</span>-->
+
+    <el-upload
+      class="upload-demo"
+      :action=uploadUrl
+      :on-success="xhrBusinessSuccess"
+    >
+      <span class="btnLargeLineColor">选取文件</span>
+    </el-upload>
+    <!--<el-tooltip class="item" effect="dark" :content="businessFileName">-->
+      <!--<span class="file-name">{{businessFileName}}</span>-->
+    <!--</el-tooltip>-->
     <span class="btnLargeFullColor" @click="downloadExcel()">下载导入模板</span>
 
     <el-card class="box-card" v-if="importVisible">
@@ -79,6 +90,7 @@
   import {CONSTS, PAGINATION} from "../../service/businessConsts";
   import {MessageBox} from 'element-ui';
   import {vdtEqualLength} from "../../utils/validataFun";
+  import {INTERFACEURL} from "../../service/interface_urls";
 
   export default {
     name: "in-stock",
@@ -88,6 +100,7 @@
 
     data() {
       return {
+        uploadUrl: INTERFACEURL.codesUpload,
         consts: CONSTS,   // 常量
         // pagination: PAGINATION,
 
@@ -97,8 +110,8 @@
         resRolesList: [],     // 前5条
         resRolesList2:[],     // 后5条
         paramQuery: {
-          pageNum: 1,
-          pageSize: PAGINATION.pageSize,
+          page_index: 1,
+          page_size: PAGINATION.pageSize,
         },
         paramInStock:{
           picihao:'',
@@ -124,8 +137,25 @@
 
       },
 
+      // xhr -- 上传文件成功
+      xhrBusinessSuccess(file) {
+        if (file.statusCode === this.$httpCode.suc) {
+          this.$message.success('上传成功');
+        }
+      },
+
       // 下载模板
       downloadExcel(){
+        let param = {
+          type:0,
+          file_code:1,
+        }
+        this.$apis.postCodesDownload(param).then(res=>{
+          if(res.code == this.$httpCode.suc){
+            console.log(res.data)
+            window.location.href = 'http://' + res.data.url;
+          }
+        })
 
       },
 
@@ -147,6 +177,12 @@
       },
 
       xhrQueryList() {
+
+        this.$apis.postCardsList(this.paramQuery).then(res=>{
+          if(res.statusCode == this.$httpCode.suc){
+
+          }
+        })
         let list = [
           {id: '0', name: '前端0', desc: '北京我看个买了我居然你看你后面是睡觉吧呕吐看给你表面上看撕碎举动饿哦那你his大怒饿哦也难怪呢'},
           {id: '1', name: '前端1', desc: '北京我看个买了我居然你看你后面是睡觉吧呕吐看给你表面上看撕碎举动饿哦那你his大怒饿哦也难怪呢'},
@@ -166,7 +202,7 @@
 
       // 切换页数
       handleCurrentChange(val) {
-        this.paramQuery.pageNum = val;
+        this.paramQuery.page_index = val;
         this.xhrQueryList()
       },
 

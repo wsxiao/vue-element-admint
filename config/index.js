@@ -12,11 +12,11 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api':{
-        target:'http://bdi-cms.hvyogo.com', // 跨域地址
+        target:'http://39.101.164.166:13149/', // 跨域地址
         changeOrigin:true,  // 是否跨域
         secure:false, // 是否使用https
         pathRewrite:{
-          '^/api': ''
+          '^/api': 'http://39.101.164.166:13149/'
         }
       }
     },

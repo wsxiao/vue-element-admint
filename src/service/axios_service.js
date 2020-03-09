@@ -7,7 +7,9 @@
 import axios from 'axios';
 import QS from 'qs';// 引入qs模块，用来序列化post类型的数据，后面会提到
 import {CONTENT_TYPE, HTTP_CODE} from "./axios_constants";
+import {Alert, MessageBox} from 'element-ui';
 import {Loading} from 'element-ui';
+
 
 let lodingOptions = {background: 'rgb(255,255,255, 0.1)'}
 let loadingInstance;
@@ -16,13 +18,11 @@ let loadingInstance;
  * 环境切换更换接口地址
  * */
 if (process.env.NODE_ENV === 'development') {
-  axios.defaults.baseURL = 'http:bdi.hvyogo.com';
-}
-else if (process.env.NODE_ENV === 'debug') {
-  axios.defaults.baseURL = 'http://bdi.hvyogo.com';
-  }
-else if (process.env.NODE_ENV === 'production') {
-  axios.defaults.baseURL = 'http://di.hvyogo.com';
+  axios.defaults.baseURL = 'http://39.101.164.166:13149/';
+  // axios.defaults.baseURL = '/api';
+
+} else if (process.env.NODE_ENV === 'production') {
+  axios.defaults.baseURL = '/api';
 }
 
 /**
@@ -30,7 +30,8 @@ else if (process.env.NODE_ENV === 'production') {
  * withCredentials：ajax携带cookie
  * */
 axios.defaults.timeout = 50000;
-axios.defaults.withCredentials = true;
+axios.defaults.crossDomain = true;
+// axios.defaults.withCredentials = true;
 
 
 /** 请求拦截
@@ -54,7 +55,7 @@ axios.interceptors.response.use(
     // 如果返回的状态码为200，说明接口请求成功，可以正常拿到数据
     // 否则的话抛出错误
     if (response.status === 200) {
-      responseCode(response.data, response.data.statusCode)
+      responseCode(response.data, response.data.code)
 
       return Promise.resolve(response);
     } else {
@@ -167,35 +168,20 @@ export function responseCode(resData, code) {
 
   switch (code) {
 
-    // 000000 成功
+    // 成功
     case HTTP_CODE.suc:
-      break;
+      // 请求成功，do something
 
-    // 100000 前端直接显示
-    case HTTP_CODE.warn:
-      break;
-
-    // 500000 服务器异常，出错页面
-    case HTTP_CODE.err:
-      break;
-
-    // 400101 无权访问 ,没有权限
-    case HTTP_CODE.err_auth:
-      break;
-
-    // 400201 参数非法 弹框提示
-    case HTTP_CODE.err_params:
-      break;
-
-    // 400301 风控拦截 - 没有session_token 直接跳转到登录页 清除cookie和local
-    case HTTP_CODE.err_risk_request:
-      break;
-
-    // 400401 风控拦截 - 异常请求 清除cookie和local
-    case HTTP_CODE.err_operate:
       break;
 
     default:
+      setTimeout(()=>{
+        MessageBox(resData.msg, '提示', {
+          confirmButtonText: '确定',
+          confirmButtonClass: 'btnFullColor'
+        })
+      },500)
+
       break;
   }
 }

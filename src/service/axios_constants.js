@@ -13,12 +13,11 @@ export const CONTENT_TYPE  = {
 
 // http请求的返回状态码
 export const HTTP_CODE = {
-  suc: '66',  // 请求成功
-  warn: '88',  // 失败
-  err: '99',  // 需要返回上步操作
-  err_auth:'82',  // 参数非法 弹框提示
-  err_params:'81',  // 服务器失败，保存or上传失败
-  err_risk_request:'80',  // 服务器错误 读取or下载失败
-  err_operate:'89',  // 未知错误
+  suc: 66,    // 成功
+  err:88,     // 失败
+  back:99,    // 返回上一步
+  param_err:81, // 参数错误
+  down_err:80,  // 读取 or 下载失败
+  other_err:89, // 未知错误
 }
 

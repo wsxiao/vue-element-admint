@@ -5,12 +5,16 @@ import 'element-ui/lib/theme-chalk/index.css';
 import VueWecharTitleTitle from 'vue-wechat-title';
 import App from './App'
 import store from './store/store'
+import {APIS} from './service/apis'
+import {HTTP_CODE} from "./service/axios_constants";
 Vue.config.productionTip = false
 
 // vue-devTools 正式禁用
 const isDebug_mode = process.env.NODE_ENV !== 'production';
 Vue.config.devtools = isDebug_mode;
 
+Vue.prototype.$apis = APIS;
+Vue.prototype.$httpCode = HTTP_CODE;
 Vue.use(ElementUI);
 Vue.use(VueWecharTitleTitle);
 
